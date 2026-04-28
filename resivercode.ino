@@ -24,7 +24,7 @@ void setup() {
   delay(2000);
   
   WiFi.mode(WIFI_STA);
-  // චැනල් එක 1 ට Force කරනවා
+  
   esp_wifi_set_channel(1, WIFI_SECOND_CHAN_NONE);
 
   if (esp_now_init() != ESP_OK) {
