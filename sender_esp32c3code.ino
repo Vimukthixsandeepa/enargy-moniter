@@ -14,8 +14,8 @@
 #define OLED_DC    3
 #define OLED_CS    7
 #define OLED_RST   -1 
-#define ENERGY_RESET_BTN 10 // කරන්ට් බිල රිසෙට් කරන්න
-#define WIFI_CONFIG_BTN  2  // Config Mode එකට යන්න (අලුත් බටන් එක)
+#define ENERGY_RESET_BTN 10 
+#define WIFI_CONFIG_BTN  2  
 
 Adafruit_SSD1306 display(128, 64, OLED_MOSI, OLED_CLK, OLED_DC, OLED_RST, OLED_CS);
 WebServer server(80);
@@ -104,7 +104,7 @@ void setup() {
   display.display();
   
   pinMode(ENERGY_RESET_BTN, INPUT_PULLUP);
-  pinMode(WIFI_CONFIG_BTN, INPUT_PULLUP); // අලුත් බටන් එක
+  pinMode(WIFI_CONFIG_BTN, INPUT_PULLUP); 
 
   // Normal ESP-NOW Setup
   WiFi.mode(WIFI_STA);
@@ -137,7 +137,7 @@ void loop() {
 
   static unsigned long lastRead = 0;
 
-  // 1. Config Button Logic (GPIO 2 - තත්පර 5ක් ඔබාගෙන ඉන්න)
+  // 1. Config Button Logic 
   if (digitalRead(WIFI_CONFIG_BTN) == LOW) {
     unsigned long pressTime = millis();
     while(digitalRead(WIFI_CONFIG_BTN) == LOW) {
@@ -148,7 +148,7 @@ void loop() {
     }
   }
 
-  // 2. Energy Reset Logic (GPIO 10 - තත්පර 3ක් ඔබාගෙන ඉන්න)
+  // 2. Energy Reset Logic 
   if (digitalRead(ENERGY_RESET_BTN) == LOW) {
     delay(3000);
     if (digitalRead(ENERGY_RESET_BTN) == LOW) {
